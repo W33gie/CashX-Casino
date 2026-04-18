@@ -2,4 +2,5 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "frame-ancestors *"
+    Content-Security-Policy = "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
+    Access-Control-Allow-Origin = "*"
