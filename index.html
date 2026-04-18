@@ -885,11 +885,12 @@ window.addEventListener('DOMContentLoaded',()=>{
   }
   rChal();animBurn();initFaq();
   loadAccount();
-  setTimeout(()=>{
-    const l=document.getElementById('ls');l.classList.add('hide');
-    document.getElementById('app').style.display='flex';
-    setTimeout(()=>l.style.display='none',400);
-  },1500);
+  function showApp(){
+    try{const l=document.getElementById('ls');if(l){l.classList.add('hide');setTimeout(()=>{l.style.display='none';},400);}}catch(e){}
+    try{const a=document.getElementById('app');if(a){a.style.display='flex';a.style.visibility='visible';a.style.opacity='1';}}catch(e){}
+  }
+  setTimeout(showApp, 1500);
+  setTimeout(showApp, 3000);
 });
 
 // Navigation
