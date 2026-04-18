@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+if(window.Telegram && window.Telegram.WebApp){
+  window.Telegram.WebApp.ready();
+  window.Telegram.WebApp.expand();
+}
+</script>
+</head>
+<body style="background:#000;color:#fff;font-family:sans-serif;padding:20px;">
+<h1 style="color:#b44fff;">It works!</h1>
+<p id="info">Loading...</p>
+<script>
+document.getElementById('info').textContent = 'Telegram: ' + (window.Telegram ? 'YES' : 'NO') + ' | User: ' + (window.Telegram?.WebApp?.initDataUnsafe?.user?.first_name || 'none');
+</script>
+</body>
+</html>
