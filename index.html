@@ -850,9 +850,11 @@ html,body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFon
 <div id="toast"></div>
 
 <script>
-const tg=window.Telegram?.WebApp,tgu=tg?.initDataUnsafe?.user;
+const tg=window.Telegram?.WebApp;
+let tgu=tg?.initDataUnsafe?.user||null;
+if(!tgu && tg && tg.initDataUnsafe) tgu=tg.initDataUnsafe.user||null;
 /* UPDATE THIS URL TO YOUR RAILWAY URL */
-  const API='https://cashx-bot-production.up.railway.app';
+  const API=window.location.origin.includes('railway') ? window.location.origin : 'https://cashx-bot-production.up.railway.app';
 
 // State
 let hNums=[],hTierIdx=0,hEntType='p',rolls=0,wins=0;
@@ -889,9 +891,11 @@ window.addEventListener('DOMContentLoaded',()=>{
   function showApp(){
     try{const l=document.getElementById('ls');if(l){l.classList.add('hide');setTimeout(()=>{l.style.display='none';},400);}}catch(e){}
     try{const a=document.getElementById('app');if(a){a.style.display='flex';a.style.visibility='visible';a.style.opacity='1';}}catch(e){}
+    try{if(tg)tg.ready();}catch(e){}
   }
-  setTimeout(showApp, 1500);
-  setTimeout(showApp, 3000);
+  setTimeout(showApp, 800);
+  setTimeout(showApp, 2000);
+  setTimeout(showApp, 4000);
 });
 
 // Navigation
