@@ -873,7 +873,7 @@ const demos=[
 
 // Init
 window.addEventListener('DOMContentLoaded',()=>{
-  if(tg){tg.expand();tg.setHeaderColor('#000000');tg.setBackgroundColor('#000000');}
+  try{if(tg){tg.ready();tg.expand();tg.setHeaderColor('#000000');tg.setBackgroundColor('#000000');}}catch(e){}
   if(tgu){
     const n=tgu.username?'@'+tgu.username:tgu.first_name;
     const i=(tgu.first_name||'G')[0].toUpperCase();
